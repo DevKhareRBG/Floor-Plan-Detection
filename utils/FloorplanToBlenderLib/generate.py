@@ -32,6 +32,7 @@ def generate_all_files(imgpath, info, position=None, rotation=None, CubiCasa=Fal
     @Param rotation, vector of float
     @Return path to generated file, shape
     '''
+    print(CubiCasa)
     global path
     if CubiCasa == True:
         import numpy as np
