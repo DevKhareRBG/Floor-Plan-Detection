@@ -9,6 +9,9 @@ from scipy.ndimage import measurements
 from shapely.geometry import Polygon
 from shapely.ops import unary_union
 from collections.abc import Iterable
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 def get_wall_polygon(wall_heatmaps, room_segmentation, threshold, wall_classes, point_orientations, orientation_ranges):
@@ -1001,6 +1004,7 @@ def extract_wall_polygon(wall, wall_points, segmentation, seg_class):
         # widths = reject_outliers(widths)
         # if len(widths) == 0:
             # return None
+        logging.info(f"Printing widths: {widths}")
         wall_width = stats.mode(widths).mode
         if wall_width > x2 - x1:
             wall_width = x2 - x1
